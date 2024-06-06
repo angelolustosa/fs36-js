@@ -1,0 +1,8 @@
+.resultado {
+    color: white;
+    background-color: cadetblue;
+    font-size: 5em;
+    padding: 12px;
+    display: none;
+    justify-content: center;
+}
