@@ -1,73 +1,34 @@
-//console.log('Script via body', document.getElementById('n1')) 
+// Pegar os números dos inputs do HTML e converter para Float, pois será possível fazer o cálculo com inteiros e decimais
+const numero1 = document.getElementById('n1');
+const numero2 = document.getElementById('n2');
+const conteudoDiv = document.querySelector('.resultado');
 
 function soma() {
-    // Pegar os números dos inputs do HTML e converter para Float, pois será possível fazer o cálculo com inteiros e decimais
-    let numero1 = parseFloat(document.getElementById('n1').value);
-    let numero2 = parseFloat(document.getElementById('n2').value);
-
-    //pegando o resultado do caulculo e colocando na variável resultado
-    let resultado = numero1 + numero2;
-
-    //console.log(numero1, numero2 );
-    console.log(resultado);
-
-    // Pegando o elemento HTML e colocando na variável conteudoDiv
-    const conteudoDiv = document.getElementsByClassName('resultado')[0];
-
-    // Pegando o conteudoDiv acessando a prop innerHTML e inserindo o valor do calculo, a variavel
-    conteudoDiv.innerHTML = 'Resultado: ' + resultado
+    let resultado = parseFloat(numero1.value) + parseFloat(numero2.value);
+    exibirResultado(resultado);
 }
 
 function subtrair() {
-    // Pegar os números dos inputs do HTML e converter para Float, pois será possível fazer o cálculo com inteiros e decimais
-    let numero1 = parseFloat(document.getElementById('n1').value);
-    let numero2 = parseFloat(document.getElementById('n2').value);
-
-    //pegando o resultado do caulculo e colocando na variável resultado
-    let resultado = numero1 - numero2;
-
-    //console.log(numero1, numero2 );
-    console.log(resultado);
-
-    // Pegando o elemento HTML e colocando na variável conteudoDiv
-    const conteudoDiv = document.getElementsByClassName('resultado')[0];
-
-    // Pegando o conteudoDiv acessando a prop innerHTML e inserindo o valor do calculo, a variavel
-    conteudoDiv.innerHTML =  resultado
+    let resultado = parseFloat(numero1.value) - parseFloat(numero2.value);
+    exibirResultado(resultado);
 }
 
 function multiplicacao() {
-    // Pegar os números dos inputs do HTML e converter para Float, pois será possível fazer o cálculo com inteiros e decimais
-    let numero1 = parseFloat(document.getElementById('n1').value);
-    let numero2 = parseFloat(document.getElementById('n2').value);
-
-    //pegando o resultado do caulculo e colocando na variável resultado
-    let resultado = numero1 * numero2;
-
-    //console.log(numero1, numero2 );
-    console.log(resultado);
-
-    // Pegando o elemento HTML e colocando na variável conteudoDiv
-    const conteudoDiv = document.getElementsByClassName('resultado')[0];
-
-    // Pegando o conteudoDiv acessando a prop innerHTML e inserindo o valor do calculo, a variavel
-    conteudoDiv.innerHTML =  resultado
+    let resultado = parseFloat(numero1.value) * parseFloat(numero2.value);
+    exibirResultado(resultado);
 }
 
 function divisao() {
-    // Pegar os números dos inputs do HTML e converter para Float, pois será possível fazer o cálculo com inteiros e decimais
-    let numero1 = parseFloat(document.getElementById('n1').value);
-    let numero2 = parseFloat(document.getElementById('n2').value);
+    let resultado = parseFloat(numero1.value) / parseFloat(numero2.value);
+    exibirResultado(resultado);
+}
 
-    //pegando o resultado do caulculo e colocando na variável resultado
-    let resultado = numero1 / numero2;
+function exibirResultado(result) {
+    conteudoDiv.style.display = 'flex'
+    conteudoDiv.innerHTML = 'Resultado: ' + result;
+}
 
-    //console.log(numero1, numero2 );
-    console.log(resultado);
-
-    // Pegando o elemento HTML e colocando na variável conteudoDiv
-    const conteudoDiv = document.getElementsByClassName('resultado')[0];
-
-    // Pegando o conteudoDiv acessando a prop innerHTML e inserindo o valor do calculo, a variavel
-    conteudoDiv.innerHTML =  resultado
+const limpar = () => {
+    conteudoDiv.style.display = 'none'
+    conteudoDiv.innerHTML = 'Resultado: '; //''
 }
