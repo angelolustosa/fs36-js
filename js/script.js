@@ -6,15 +6,16 @@ const conteudoDiv = document.querySelector('.resultado');
 function soma() {
     if (numero1.value !== '' && numero2.value !== '') {
         console.log('somar!');
-
         let resultado = parseFloat(numero1.value) + parseFloat(numero2.value);
         exibirResultado(resultado);
     } else {
         console.log('alerta preencher campos');
-        alert('Preencha os campos para realizar a soma!');
+        if (numero1.value === '') {
+            alert('Preencha o número 1 para realizar a operação!');
+        } else {
+            alert('Preencha o número 2 para realizar a operação!');
+        }
     }
-
-
 }
 
 function subtrair() {
