@@ -4,8 +4,17 @@ const numero2 = document.getElementById('n2');
 const conteudoDiv = document.querySelector('.resultado');
 
 function soma() {
-    let resultado = parseFloat(numero1.value) + parseFloat(numero2.value);
-    exibirResultado(resultado);
+    if (numero1.value !== '' && numero2.value !== '') {
+        console.log('somar!');
+
+        let resultado = parseFloat(numero1.value) + parseFloat(numero2.value);
+        exibirResultado(resultado);
+    } else {
+        console.log('alerta preencher campos');
+        alert('Preencha os campos para realizar a soma!');
+    }
+
+
 }
 
 function subtrair() {
@@ -29,6 +38,6 @@ function exibirResultado(result) {
 }
 
 const limpar = () => {
-    conteudoDiv.style.display = 'none'
+        conteudoDiv.style.display = 'none'
     conteudoDiv.innerHTML = 'Resultado: '; //''
 }
