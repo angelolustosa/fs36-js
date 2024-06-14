@@ -3,19 +3,40 @@ const numero1 = document.getElementById('n1');
 const numero2 = document.getElementById('n2');
 const conteudoDiv = document.querySelector('.resultado');
 
-function soma() {
-    if (numero1.value !== '' && numero2.value !== '') {
-        console.log('somar!');
-        let resultado = parseFloat(numero1.value) + parseFloat(numero2.value);
-        exibirResultado(resultado);
+
+function calcular(e) {
+    //console.log(e.innerText);
+    const operacao = e.innerText;
+
+    //se os dois campos estiverem
+    if (numero1.value === '' && numero2.value === '') {
+        alert('Preencher os campos');
     } else {
-        console.log('alerta preencher campos');
         if (numero1.value === '') {
-            alert('Preencha o número 1 para realizar a operação!');
+            alert('Por favor, Preencher o campo 1')
+        } else if(numero2.value === '') {
+            alert('Por favor, Preencher o campo 2')
         } else {
-            alert('Preencha o número 2 para realizar a operação!');
+           executarOperacao(operacao);
         }
     }
+}
+
+function executarOperacao(op) {
+    if(op === '+') {
+        soma()
+    } else if(op === '-') {
+        subtrair()
+    } else if(op === '*') {
+        multiplicacao()
+    } else if(op === '/') {
+        divisao()
+    }
+}
+
+function soma() {
+    let resultado = parseFloat(numero1.value) + parseFloat(numero2.value);
+    exibirResultado(resultado);
 }
 
 function subtrair() {
